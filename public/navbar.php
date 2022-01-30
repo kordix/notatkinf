@@ -13,7 +13,7 @@
                  
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/add.php">Obrazki</a>
+                        <a class="nav-link" href="/obrazki.php">Obrazki</a>
                     </li>
                     </ul>
 
