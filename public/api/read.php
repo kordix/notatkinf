@@ -20,7 +20,7 @@ if(isset($dane->id)){
 
 //REPLACE
 try{
-$sth = $dbh->prepare("SELECT * FROM $tabela $where");
+$sth = $dbh->prepare("SELECT * FROM $tabela $where order by id desc");
 }catch(Exception $e){
     echo $e->getMessage();
     return http_response_code(500);

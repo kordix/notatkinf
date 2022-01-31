@@ -26,7 +26,6 @@ if (isset($_SESSION['zalogowany'])) {
 
 <button @click="zaloguj">Zaloguj</button>
 
-<button @click="test">Test</button>
 
 <p><b>{{error}}</b></p>
 
@@ -47,34 +46,11 @@ let app = new Vue({
         testdata:''
     },
     methods:{
-        test(){
-            // axios.get('/api/test.php')
-            //     .catch(function (error) {
-            //         if (error.response) {
-            //                 // Request made and server responded
-            //                 console.log(error.response.data);
-            //                 console.log(error.response.status);
-            //                 console.log(error.response.headers);
-            //                 } else if (error.request) {
-            //                 // The request was made but no response was received
-            //                 console.log(error.request);
-            //                 } else {
-            //                 // Something happened in setting up the request that triggered an Error
-            //                 console.log('Error', error.message);
-            //                 }
-
-            //             });
-
-            axios.get('api/test.php').then((res)=>{ if(res.data == 'DUPA'){ console.log('FAKTYCZNIE WIDZI TAM DUPE');}  })
-
-        },
         zaloguj(){
             let self = this;
             try{
             axios.post('api/zaloguj.php',{login:this.login,password:this.password}).then((res)=>{
                 console.log(res.data.length);
-
-              
 
                 if(res.data.trim() == 'ZALOGOWANY'){
                     console.log('JOŁ JOŁ ZALOGOWANY');

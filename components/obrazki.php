@@ -1,7 +1,17 @@
 <script type="text/x-template" id="obrazki">
-    <div>
-            <p>Search: <input type="text" v-model="search"></p>
-            <!-- <div>
+<div>
+    <p>Search: <input type="text" v-model="search"></p>
+
+
+    <p><b>Dodaj pozycję:</b></p>
+    <label for="">Url</label>
+    <input type="text" v-model="editedone.url">
+    <label for="">Opis</label>
+    <input type="text" v-model="editedone.opis">
+    <button @click="add">Zatwierdź</button>
+
+
+    <!-- <div>
                 <table class="table table-bordered table-dark">
                     <thead>
                         <tr>
@@ -24,31 +34,31 @@
                 </table>
             </div> -->
 
-               
-            <div v-for="elem in filtered" style="margin:10px">
-            <a :href="elem.url" target="_blank">
-                            <img :src="elem.url" alt="" style="width:300px">
-            </a>
 
-                        </div>
+    <div v-for="elem in filtered" style="margin:10px">
+        <a :href="elem.url" target="_blank">
+            <img :src="elem.url" alt="" style="width:300px">
+        </a>
 
-            <div>    
+        <button type="button" class="btn btn-success editbtn" @click="edit(elem.id)" v-if="editmode"> EDIT </button>
+
+        <button type="button" class="btn btn-danger deletebtn" @click="deletem(elem.id)" v-if="editmode"> DELETE </button>
 
 
-            <p><b>Dodaj pozycję:</b></p>
-            <label for="">Url</label>
-            <input type="text" v-model="editedone.url">
-            <label for="">Opis</label>
-            <input type="text" v-model="editedone.opis">
-            <button @click="add">Zatwierdź</button>
-            </div>
+    </div>
 
-            <div v-if="editedone.id">    
+    <div>
+
+        <button @click="editmode=!editmode">Edytuj</button>
+
+        <div v-if="editedone.id">
             <p><b>Edytuj pozycję {{editedone.id}}:</b></p>
             <input type="text" v-model="editedone.url">
             <input type="text" v-model="editedone.opis">
             <button @click="update">Zatwierdź</button>
-            </div>
+        </div>
+
+    </div>
 </div>
 </script>
 
@@ -60,31 +70,32 @@
             return {
                 heads: [],
                 cruddata: [],
-                cruddataadd:{},
+                cruddataadd: {},
                 editedone: {},
                 search: '',
-                sortkey: ''
+                sortkey: '',
+                editmode: false
             }
         },
         created() {
             this.getData();
         },
         methods: {
-            getData(){
+            getData() {
                 let self = this;
-            axios.post('api/read.php', {
-                tabela: 'obrazki'
-            }).then((res) => {
-                this.cruddata = res.data
-            }).then((res) => self.getHeads());
+                axios.post('api/read.php', {
+                    tabela: 'obrazki'
+                }).then((res) => {
+                    this.cruddata = res.data
+                }).then((res) => self.getHeads());
 
             },
             edit(id) {
                 this.editedone = this.cruddata.find((el) => el.id == id);
             },
-            add(){
+            add() {
                 let self = this;
-                axios.post('api/add.php',{tabela:'obrazki',dane:this.editedone}).then((res)=>{self.editedone = {};self.getData()})
+                axios.post('api/add.php', { tabela: 'obrazki', dane: this.editedone }).then((res) => { self.editedone = {}; self.getData() })
             },
             update() {
                 axios.post('api/update.php', {
@@ -113,21 +124,21 @@
             }
         },
         computed: {
-            filtered: function() {
+            filtered: function () {
                 let self = this;
                 var filterKey = this.search && this.search.toLowerCase()
                 var order = 1;
                 var filtered = this.cruddata;
                 if (filterKey) {
-                    filtered = filtered.filter(function(row) {
-                        return Object.keys(row).some(function(key) {
+                    filtered = filtered.filter(function (row) {
+                        return Object.keys(row).some(function (key) {
                             return String(row[key]).toLowerCase().indexOf(filterKey) > -1
                         })
                     })
                 }
                 if (this.sortkey) {
 
-                    filtered = filtered.sort(function(a, b) {
+                    filtered = filtered.sort(function (a, b) {
                         console.log(self.sortkey);
 
                         var keyA = a[self.sortkey];
