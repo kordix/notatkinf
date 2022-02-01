@@ -31,19 +31,24 @@
             <textarea type="text" cols="100" v-model="editedone.snippet"></textarea>
             <br>
             <label for="">Opis</label>
-
             <input type="text" v-model="editedone.opis">
             <br>
+            <label for="">Kategoria</label>
+            <input type="text" v-model="editedone.kategoria">
             <br>
-            <button @click="add">Zatwierdź</button>
+            <br>
+            <button @click="add" v-if="!editedone.id">Zatwierdź</button>
+
+            <button @click="update" v-if="editedone.id">Zmień</button>
+
             </div>
 
-            <div v-if="editedone.id">    
+            <!-- <div v-if="editedone.id">    
             <p><b>Edytuj pozycję {{editedone.id}}:</b></p>
             <input type="text" v-model="editedone.imie">
             <input type="text" v-model="editedone.nazwisko">
             <button @click="update">Zatwierdź</button>
-            </div>
+            </div> -->
 </div>
 </script>
 

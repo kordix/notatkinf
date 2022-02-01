@@ -11,6 +11,7 @@ $values = '';
 
 foreach($dane->dane as $key => $value)
 {
+  $value = addslashes($value);
   $kolumny .= $key;
   $kolumny .= ',';
   $values .= "'".$value."'";

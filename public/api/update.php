@@ -15,6 +15,7 @@ foreach($dane->dane as $key => $value)
 {
   $kwerenda .= $key;
   $kwerenda .= '=';
+  $value = addslashes($value);
   $kwerenda .= "'".$value."'";
   $kwerenda .= ',';
 }
