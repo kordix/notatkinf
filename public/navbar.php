@@ -15,6 +15,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/obrazki.php">Obrazki</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/snippety.php">Snippety</a>
+                    </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -1,5 +1,5 @@
 <?php
-//if($_SERVER['REQUEST_METHOD'] != 'POST') return;
+// if($_SERVER['REQUEST_METHOD'] != 'POST') return;
 
 
 require_once('db.php');
