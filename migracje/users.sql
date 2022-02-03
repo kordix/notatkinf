@@ -1,9 +1,7 @@
-CREATE TABLE users(
-    id int NOT NULL AUTO_INCREMENT,
-    login varchar(255),
-    password varchar(255),
-    PRIMARY KEY (id)
-    );
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `login` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
+    `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
+      PRIMARY KEY (id)
 
-
-INSERT INTO `users` (`id`, `login`, `password`) VALUES (1, 'admin', '0192023a7bbd73250516f069df18b500');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
