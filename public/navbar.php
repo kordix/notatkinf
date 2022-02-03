@@ -18,6 +18,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/snippety.php">Snippety</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/linki.php">Linki</a>
+                    </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
