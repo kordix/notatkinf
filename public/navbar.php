@@ -21,6 +21,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/linki.php">Linki</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pomysly.php">Pomysły</a>
+                    </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
