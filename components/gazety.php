@@ -1,28 +1,16 @@
-<script type="text/x-template" id="linki">
+<script type="text/x-template" id="gazety">
     <div>
             <p>Search: <input type="text" v-model="search"></p>
             <div>
                 <table class="table table-bordered table-dark">
                     <thead>
                         <tr>
-                            <!-- <th v-for="elem in heads" @click="sortBy(elem)">{{elem}}</th> -->
-
-                            <th  @click="sortBy('id')">id</th>
-                            <th  @click="sortBy('link')">link</th>
-                            <th  @click="sortBy('kategoria')">kategoria</th>
-
-
+                            <th v-for="elem in heads" @click="sortBy(elem)">{{elem}}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="elem in filtered">
-                        <td>{{elem.id}}</td>
-                            
-                            <td><a :href="elem.link" > 
-                                <span v-if="elem.link.length>70">  {{elem.link.slice(0,70)}}</span> 
-                                <span v-else>  {{elem.link}} </span> </a>    </td>
-                            <td>{{elem.kategoria}}</td>
-
+                            <td v-for="k in heads">{{elem[k]}}</td>
                             <td>
                                 <button type="button" class="btn btn-success editbtn" @click="edit(elem.id)"> EDIT </button>
                               </td>
@@ -38,14 +26,15 @@
             <div>    
             <p><b>Dodaj pozycję:</b></p>
 
-            <label for="">URL</label>
-            <input type="text" v-model="editedone.link">
+            <label for="">Gazeta</label>
+            <input type="text" style="width:400px" v-model="editedone.gazeta">
             <br>
-            <label for="">Opis</label>
-            <input type="text" v-model="editedone.opis">
+            <label for="">Zagadnienie</label>
+            <br>
+            <textarea name="" id="" cols="50" rows="3" v-model="editedone.zagadnienie"></textarea>
             <br>
             <label for="">Kategoria</label>
-            <input type="text" v-model="editedone.kategoria">
+            <input type="text" style="width:300px" v-model="editedone.kategoria">
             <br>
             <br>
             <button @click="add" v-if="!editedone.id">Zatwierdź</button>
@@ -53,14 +42,13 @@
             <button @click="update" v-if="editedone.id">Zmień</button>
 
             </div>
-
 </div>
 </script>
 
 
 <script>
-    Vue.component('linki', {
-        template: '#linki',
+    Vue.component('gazety', {
+        template: '#gazety',
         data() {
             return {
                 heads: [],
@@ -78,7 +66,7 @@
             getData(){
                 let self = this;
             axios.post('api/read.php', {
-                tabela: 'linki'
+                tabela: 'gazety'
             }).then((res) => {
                 this.cruddata = res.data
             }).then((res) => self.getHeads());
@@ -89,11 +77,11 @@
             },
             add(){
                 let self = this;
-                axios.post('api/add.php',{tabela:'linki',dane:this.editedone}).then((res)=>{self.editedone = {};self.getData()})
+                axios.post('api/add.php',{tabela:'gazety',dane:this.editedone}).then((res)=>{self.editedone = {};self.getData()})
             },
             update() {
                 axios.post('api/update.php', {
-                    tabela: 'linki',
+                    tabela: 'gazety',
                     dane: this.editedone,
                     id: this.editedone.id
                 }).then((res) => {
@@ -103,7 +91,7 @@
             },
             deletem(id) {
                 axios.post('api/delete.php', {
-                    tabela: 'linki',
+                    tabela: 'gazety',
                     id: id
                 }).then((res) => console.log(res)).then((res) => location.reload());
             },

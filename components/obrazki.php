@@ -10,31 +10,6 @@
     <input type="text" v-model="editedone.opis">
     <button @click="add">Zatwierdź</button>
 
-
-    <!-- <div>
-                <table class="table table-bordered table-dark">
-                    <thead>
-                        <tr>
-                            <th v-for="elem in heads" @click="sortBy(elem)">{{elem}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="elem in filtered">
-                            <td v-for="k in heads">{{elem[k]}}</td>
-                            <td>
-                                <button type="button" class="btn btn-success editbtn" @click="edit(elem.id)"> EDIT </button>
-                              </td>
-                              <td>
-                                <button type="button" class="btn btn-danger deletebtn" @click="deletem(elem.id)"> DELETE </button>
-                            </td>
-                        </tr>
-                     
-
-                    </tbody>
-                </table>
-            </div> -->
-
-
     <div v-for="elem in filtered" style="margin:10px">
         <a :href="elem.url" target="_blank">
             <img :src="elem.url" alt="" style="width:300px">
