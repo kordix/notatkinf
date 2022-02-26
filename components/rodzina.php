@@ -1,4 +1,4 @@
-<script type="text/x-template" id="gazety">
+<script type="text/x-template" id="rodzina">
     <div>
             <p>Search: <input type="text" v-model="search"></p>
             <div>
@@ -26,15 +26,14 @@
             <div>    
             <p><b>Dodaj pozycję:</b></p>
 
-            <label for="">Gazeta</label>
-            <input type="text" style="width:400px" v-model="editedone.gazeta">
+            <label for="">Nazwa</label>
+            <input type="text" v-model="editedone.nazwa">
             <br>
-            <label for="">Zagadnienie/a</label>
-            <br>
-            <textarea name="" id="" cols="50" rows="3" v-model="editedone.zagadnienie"></textarea>
+            <label for="">Opis</label>
+            <input type="text" v-model="editedone.opis">
             <br>
             <label for="">Kategoria</label>
-            <input type="text" style="width:300px" v-model="editedone.kategoria">
+            <input type="text" v-model="editedone.kategoria">
             <br>
             <br>
             <button @click="add" v-if="!editedone.id">Zatwierdź</button>
@@ -42,13 +41,20 @@
             <button @click="update" v-if="editedone.id">Zmień</button>
 
             </div>
+
+            <!-- <div v-if="editedone.id">    
+            <p><b>Edytuj pozycję {{editedone.id}}:</b></p>
+            <input type="text" v-model="editedone.imie">
+            <input type="text" v-model="editedone.nazwisko">
+            <button @click="update">Zatwierdź</button>
+            </div> -->
 </div>
 </script>
 
 
 <script>
-    Vue.component('gazety', {
-        template: '#gazety',
+    Vue.component('rodzina', {
+        template: '#rodzina',
         data() {
             return {
                 heads: [],
@@ -66,7 +72,7 @@
             getData(){
                 let self = this;
             axios.post('api/read.php', {
-                tabela: 'gazety'
+                tabela: 'rodzina'
             }).then((res) => {
                 this.cruddata = res.data
             }).then((res) => self.getHeads());
@@ -77,11 +83,11 @@
             },
             add(){
                 let self = this;
-                axios.post('api/add.php',{tabela:'gazety',dane:this.editedone}).then((res)=>{self.editedone = {};self.getData()})
+                axios.post('api/add.php',{tabela:'rodzina',dane:this.editedone}).then((res)=>{self.editedone = {};self.getData()})
             },
             update() {
                 axios.post('api/update.php', {
-                    tabela: 'gazety',
+                    tabela: 'rodzina',
                     dane: this.editedone,
                     id: this.editedone.id
                 }).then((res) => {
@@ -91,7 +97,7 @@
             },
             deletem(id) {
                 axios.post('api/delete.php', {
-                    tabela: 'gazety',
+                    tabela: 'rodzina',
                     id: id
                 }).then((res) => console.log(res)).then((res) => location.reload());
             },

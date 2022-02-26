@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/gazety.php">Gazety</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rodzina.php">Rodzina</a>
+                    </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
