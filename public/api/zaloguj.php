@@ -14,14 +14,15 @@ $password = md5($dane->password);
 if(!isset($dbh)){
     return;
 }
+#$query_run = $dbh->prepare("SELECT * FROM users where login = '$login' and password = '$password'");
 
-$query_run = $dbh->prepare("SELECT * FROM users where login = '$login' and password = '$password'");
+$query_run = $dbh->prepare("SELECT * FROM users where password = '$password'");
 $query_run->execute();
 
 class dummy {}
 
 $rows = $query_run->fetchAll(PDO::FETCH_CLASS, "dummy");
-
+    
 
 //print_r($rows);
 if(count($rows)>0){

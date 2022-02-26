@@ -19,8 +19,8 @@ if (isset($_SESSION['zalogowany'])) {
 
 
 <div id="app">
-<label for="">Login</label>
-<input type="text" v-model="login">
+<!-- <label for="">Login</label> -->
+<!-- <input type="text" v-model="login"> -->
 <label for="">Haslo</label>
 <input type="password" v-model="password">
 
