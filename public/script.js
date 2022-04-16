@@ -14,6 +14,10 @@ let app = new Vue({
     
     },
     methods: {
+
+        test(){
+            console.log('afsdsdf');
+        }
      
 
 

@@ -3,16 +3,16 @@
                 <a class="navbar-brand" href="/">
                     Notatki
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" @click="test()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse show" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto" style="flex-direction:row!important">
                  
 
-                    <li class="nav-item">
+                    <li class="nav-item" style="margin:5px">
                         <a class="nav-link" href="/obrazki.php">Obrazki</a>
                     </li>
                     <li class="nav-item">
@@ -33,7 +33,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" >
                         <!-- Authentication Links -->
                         <template v-if="1==0">
                             <li class="nav-item">
