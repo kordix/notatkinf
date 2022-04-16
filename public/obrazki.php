@@ -23,6 +23,9 @@ if($_SESSION['zalogowany']){
         #wyloguj{
             display:block;
         }
+        .nav-item{
+            margin:5px!important;
+        }
     </style>
 </head>
 <body>
