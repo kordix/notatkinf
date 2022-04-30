@@ -1,7 +1,12 @@
 <script type="text/x-template" id="jokes">
     <div>
+<select name="" id="" v-model="tryb">
+<option value="classic">Klasyczny</option>
+    
+<option value="tabular">Tabelaryczny</option>
+</select>
             <p>Search: <input type="text" v-model="search"></p>
-            <div>
+            <div v-if="tryb=='tabular'">
                 <table class="table table-bordered table-dark">
                     <thead>
                         <tr>
@@ -14,7 +19,7 @@
                             <td>
                                 <button type="button" class="btn btn-success editbtn" @click="edit(elem.id)"> EDIT </button>
                               </td>
-                              <td>
+                            <td>
                                 <button type="button" class="btn btn-danger deletebtn" @click="deletem(elem.id)"> DELETE </button>
                             </td>
                         </tr>
@@ -22,6 +27,8 @@
                     </tbody>
                 </table>
             </div>
+
+            <span class="badge badge-secondary" v-for="elem in filtered" style="margin:1px">{{elem.title}}</span>
 
             <div>    
             <p><b>Dodaj pozycję:</b></p>
@@ -62,7 +69,8 @@
                 cruddataadd:{},
                 editedone: {},
                 search: '',
-                sortkey: ''
+                sortkey: '',
+                tryb:'classic'
             }
         },
         created() {
