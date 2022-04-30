@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/rodzina.php">Rodzina</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/jokes.php">Kawały</a>
+                    </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
