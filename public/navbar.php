@@ -3,13 +3,13 @@
                 <a class="navbar-brand" href="/">
                     Notatki
                 </a>
-                <button class="navbar-toggler" @click="test()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler hidemobile" @click="test()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse show" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto" style="flex-direction:row!important">
+                    <ul class="navbar-nav mr-auto" style="flex-direction:row!important;flex-wrap:wrap">
                  
 
                     <li class="nav-item" style="margin:5px">
@@ -50,7 +50,7 @@
                         <li class="nav-item" style="transform: translateY(20%);">
                     
                         </li>
-                            <li class="nav-item dropdown" v-if="1==1" @click="$root.wylogujshow = !$root.wylogujshow">
+                            <li class="nav-item dropdown hidemobile" v-if="1==1" @click="$root.wylogujshow = !$root.wylogujshow">
                             
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -61,7 +61,7 @@
                                     <a class="dropdown-item" href="logout.php">
                                         Wyloguj
                                     </a>
-                                    </div>
+                                </div>
                             </li>
                     </ul>
                 </div>

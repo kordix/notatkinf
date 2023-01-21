@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['zalogowany'])){
+if (!isset($_SESSION['zalogowany'])) {
     header('Location: /login.php');
 }
 
-if($_SESSION['zalogowany']){
-    
+if ($_SESSION['zalogowany']) {
 }
 ?>
 
@@ -20,6 +19,7 @@ if($_SESSION['zalogowany']){
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+
     <style>
         #wyloguj{
             display:block;
@@ -28,7 +28,6 @@ if($_SESSION['zalogowany']){
         .nav-item{
             margin:5px!important;
         }
-
     </style>
 </head>
 <body>
@@ -38,7 +37,7 @@ if($_SESSION['zalogowany']){
     
     <div  class="container" id="app">
 
-<crudcomp></crudcomp>
+<pomysly></pomysly>
 
 </div>
 
@@ -47,7 +46,6 @@ if($_SESSION['zalogowany']){
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     
 
-<?php include('../components/crudcomp.php') ?>
 
 <script src="script.js"></script>
 

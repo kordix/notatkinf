@@ -45,6 +45,15 @@ let app = new Vue({
         error:'',
         testdata:''
     },
+    mounted(){
+        let self = this;
+
+        document.onkeydown = (evt) => {
+            if(evt.key == 'Enter'){
+                self.zaloguj()
+            }
+        }
+    },
     methods:{
         zaloguj(){
             let self = this;
